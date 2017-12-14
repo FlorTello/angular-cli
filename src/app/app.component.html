@@ -1,8 +1,6 @@
 <section fxLayout="column" fxLayoutAlign="center center" fxLayoutWrap>
   <form [formGroup]="form" autocomplete="off" fxFlex="100">
-    <!--<mat-form-field fxFlex="100">-->
     <textarea matInput formControlName="sentence" placeholder="Ingrese texto"></textarea>
-    <!--</mat-form-field>-->
     <button type="submit" mat-button (click)="onAdd()">Add</button>
     <button type="button" mat-button (click)="onShowData()">Show All</button>
   </form>

@@ -19,7 +19,6 @@ import {MatButtonModule, MatFormFieldModule, MatSnackBarModule} from '@angular/m
     FlexLayoutModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule,
     MatFormFieldModule,
     MatSnackBarModule,
     MatButtonModule
