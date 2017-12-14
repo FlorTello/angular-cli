@@ -4,6 +4,10 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {HttpClientModule} from '@angular/common/http';
+import {UserService} from './user.service';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MatButtonModule, MatFormFieldModule, MatSnackBarModule} from '@angular/material';
 
 
 @NgModule({
@@ -12,9 +16,15 @@ import {FlexLayoutModule} from '@angular/flex-layout';
   ],
   imports: [
     BrowserModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatSnackBarModule,
+    MatButtonModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
