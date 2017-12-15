@@ -7,4 +7,21 @@
 
 <p>{{counter}}</p>
 
+<form [formGroup]="form" (submit)="onSummit($event)">
+
+  <div style="text-align:center">
+    <h1>
+      Welcome to {{ title }}!
+    </h1>
+  </div>
+
+  <input type="text" formControlName="name"/>
+  <p *ngIf="form.get('name').hasError('required')">
+    Por favor ingrese un numero mayor de 7 digitos
+  </p>
+</form>
+
+{{ form.get('name').value }}
+{{ form.get('name').errors | json}}
+
 
