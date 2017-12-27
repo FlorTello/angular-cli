@@ -1,0 +1,12 @@
+<mat-card>
+  <form [formGroup]="form" (submit)="submit()">
+    <input type="text" value="" formControlName="name" placeholder="Name: ">
+    <input type="text" value="" formControlName="players" placeholder="Players: ">
+    <input type="password" value="" formControlName="password" placeholder="Password: ">
+    <input type="text" value="" formControlName="turns" placeholder="Turns: ">
+
+    <button type="submit" mat-button color="accent">
+      Continuar
+    </button>
+  </form>
+</mat-card>

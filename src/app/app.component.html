@@ -1,11 +1,19 @@
-<section fxLayout="column" fxLayoutAlign="center center" fxLayoutWrap>
-  <form [formGroup]="form" autocomplete="off" fxFlex="100">
-    <textarea matInput formControlName="sentence" placeholder="Ingrese texto"></textarea>
-    <button type="submit" mat-button (click)="onAdd()">Add</button>
-    <button type="button" mat-button (click)="onShowData()">Show All</button>
-  </form>
-  <div>
-    <p *ngFor="let user of gridText">{{user.sentence}}</p>
-  </div>
-</section>
+<!--<section fxLayout="column" fxLayoutAlign="center center" fxLayoutWrap>-->
+  <!--<form [formGroup]="form" autocomplete="off" fxFlex="100">-->
+    <!--<mat-form-field>-->
+      <!--<input type="text" matInput-->
+             <!--placeholder="Ingresa el código de verificación:">-->
+      <!--<mat-hint *ngIf="verifiedNow">¡Código correcto!</mat-hint>-->
+    <!--</mat-form-field>-->
+    <!--<textarea matInput formControlName="sentence" placeholder="Ingrese texto"></textarea>-->
+    <!--<button type="submit" mat-button (click)="onAdd()">Add</button>-->
+    <!--<button type="button" mat-button (click)="onShowData()">Show All</button>-->
+  <!--</form>-->
+  <!--<div>-->
+    <!--<p *ngFor="let user of gridText">{{user.sentence}}</p>-->
+  <!--</div>-->
+<!--</section>-->
 
+<!--<h1>Exquisite Corpse</h1>-->
+
+<router-outlet></router-outlet>

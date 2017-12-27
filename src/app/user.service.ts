@@ -4,19 +4,30 @@ import 'rxjs/add/observable/of';
 
 @Injectable()
 export class UserService {
-  data = [];
+  data = [
+    {
+      id: '1',
+      text: []
+    },
+    {
+      id: '2',
+      text: []
+    },
+    {
+      id: '3',
+      text: []
+    }
+  ];
 
   constructor() {
   }
 
-  getSencentes(): Observable<any> {
+  getSencentes(game = ''): Observable<any> {
     return Observable.of(this.data);
   }
 
-  setSentence(text: string): Observable<any> {
-    this.data.push({
-      gamer: 'user', sentence: text
-    });
+  setSentence(id: string, text: string): Observable<any> {
+    this.data.find(game => game.id === id).text.push(text);
     return Observable.of({message: 'success'});
   }
 
