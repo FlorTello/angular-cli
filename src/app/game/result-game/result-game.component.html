@@ -1,5 +1,8 @@
-result-game works!
-<button type="button" mat-button (click)="onShowData()">Show All</button>
-<div>
-  <p *ngFor="let user of gridText">{{user.sentence}}</p>
-</div>
+<mat-card>
+  <div fxLayout="column">
+    <button type="button" mat-raised-button (click)="onShowData()">Show All</button>
+    <p>El poema de Hoy es: </p>
+    <p *ngFor="let user of gridText">{{user.text}}</p>
+  </div>
+</mat-card>
+

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {UserService} from './user.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {MatSnackBar} from '@angular/material';
+import {GameService} from './game/game.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   gridText = [];
   form: FormGroup;
 
-  constructor(private userService: UserService,
+  constructor(private gameService: GameService,
               private formBuilder: FormBuilder,
               private snackBar: MatSnackBar) {
 
@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
   onAdd() {
     if (this.form.valid) {
       const text = this.form.get('sentence');
-      this.userService.setSentence(text.value).subscribe(res => {
+      this.gameService.setSentence('', text.value).subscribe(res => {
         this.gridText = null;
         text.reset('');
       });
@@ -35,7 +35,7 @@ export class AppComponent implements OnInit {
   }
 
   onShowData() {
-    this.userService.getSencentes().subscribe(res => {
+    this.gameService.getSencentes().subscribe(res => {
       this.gridText = res;
     });
   }

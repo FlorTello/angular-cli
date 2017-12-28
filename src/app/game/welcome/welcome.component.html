@@ -1,5 +1,6 @@
-<mat-card fxLayout="column" fxLayoutAlign="center" fxFlexAlign="center">
-  <div fxLayout="row" fxFlexAlign="center" fxLayoutAlign="center">
-    <button type="button" mat-button (click)="onNewGame()">NEW GAME</button>
+<mat-card fxLayout="column" fxLayoutAlign="center" fxFlexAlign="center" fxLayoutWrap>
+  <div fxLayout="column" fxLayoutAlign="center" fxFlexAlign="center" fxLayoutGap="1rem">
+    <button fxFlex="60" type="button" mat-button (click)="onNewGame()">NEW GAME</button>
+    <button fxFlex="60" type="button" mat-button (click)="onJoinGame()">JOIN TO GAME</button>
   </div>
 </mat-card>

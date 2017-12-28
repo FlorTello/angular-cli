@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {UserService} from '../../user.service';
+import {GameService} from '../game.service';
 
 @Component({
   selector: 'app-result-game',
@@ -9,14 +9,17 @@ import {UserService} from '../../user.service';
 export class ResultGameComponent implements OnInit {
   gridText = [];
 
-  constructor(private userService: UserService) {
+  constructor(private gameService: GameService) {
   }
 
   ngOnInit() {
+    this.gameService.getSencentes().subscribe(res => {
+      this.gridText = res;
+    });
   }
 
   onShowData() {
-    this.userService.getSencentes().subscribe(res => {
+    this.gameService.getSencentes().subscribe(res => {
       this.gridText = res;
     });
   }

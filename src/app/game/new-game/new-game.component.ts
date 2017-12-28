@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {GameService} from '../game.service';
+import {MatDialog} from '@angular/material';
 
 @Component({
   selector: 'app-new-game',
@@ -10,10 +11,14 @@ import {GameService} from '../game.service';
 })
 export class NewGameComponent implements OnInit {
   form;
+  newCode;
+  @ViewChild('dialogViewCode') dialogRef;
+
 
   constructor(private fb: FormBuilder,
               private router: Router,
-              private gameService: GameService) {
+              private gameService: GameService,
+              private dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -32,21 +37,26 @@ export class NewGameComponent implements OnInit {
     }
 
     const name = this.form.get('name').value;
-    const players = this.form.get('players').value;
     const password = this.form.get('password').value;
     const turns = this.form.get('turns').value;
 
     const game = {
       name: name,
-      players: players,
       password: password,
       turns: turns
     };
     console.log(game);
-    this.gameService.setInfogame('1', name, password, players, turns).subscribe(res => console.log('addGame', res));
-    this.router.navigate(['/game/text']);
+    this.gameService.setInfogame(name, password, turns).subscribe(res => {
+      this.newCode = res;
+      this.dialog.open(this.dialogRef);
+      console.log('addGame', res);
+    });
 
   }
 
+  onAccepted() {
+    this.router.navigate(['/game/text']);
+    this.dialog.closeAll();
+  }
 
 }

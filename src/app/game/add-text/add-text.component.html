@@ -1,7 +1,12 @@
 <mat-card>
-  <form [formGroup]="form" autocomplete="off" fxFlex="100">
-    <textarea matInput formControlName="sentence" placeholder="Ingrese texto"></textarea>
-    <button type="button" mat-button (click)="onBack()">Undo</button>
-    <button type="submit" mat-button (click)="onAdd()">Done</button>
-  </form>
+  <div>
+    <p>Name of Game {{nameGame}}</p>
+    <form [formGroup]="form" autocomplete="off">
+      <input matInput formControlName="sentence" placeholder="Ingrese texto">
+      <div>
+        <button type="button" mat-button (click)="onBack()">Undo</button>
+        <button type="submit" mat-button (click)="onAdd()">Done</button>
+      </div>
+    </form>
+  </div>
 </mat-card>

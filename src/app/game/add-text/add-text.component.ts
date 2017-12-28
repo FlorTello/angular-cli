@@ -12,6 +12,8 @@ import {GameService} from '../game.service';
 export class AddTextComponent implements OnInit {
   form;
   allTurns;
+  codeGame;
+  nameGame = '';
 
   constructor(private formBuilder: FormBuilder,
               private router: Router,
@@ -23,22 +25,23 @@ export class AddTextComponent implements OnInit {
     this.form = this.formBuilder.group({
       sentence: ['', Validators.required]
     });
-
-    this.allTurns = this.gameService.getTurnsgame('1');
-
+    this.allTurns = this.gameService.getTurnsGame();
+    this.nameGame = this.gameService.getNameGame();
+    this.codeGame = this.gameService.codeGame;
+    console.log('turns', this.allTurns);
   }
 
   onAdd() {
 
     if (this.form.valid) {
       const newSentence = this.form.get('sentence');
-      if (this.allTurns > 0) {
-        this.userService.setSentence('1', newSentence.value).subscribe(res => {
-          newSentence.reset('');
-          this.allTurns--;
-        });
-      } else {
+      if (this.allTurns === 0) {
         this.router.navigate(['/game/result']);
+      } else {
+        this.gameService.setSentence(this.codeGame, newSentence.value).subscribe(res => {
+          this.allTurns--;
+          newSentence.reset('');
+        });
       }
     }
   }

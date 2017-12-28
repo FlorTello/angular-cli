@@ -6,6 +6,7 @@ import {GameComponent} from './game/game.component';
 import {NewGameComponent} from './game/new-game/new-game.component';
 import {AddTextComponent} from './game/add-text/add-text.component';
 import {ResultGameComponent} from './game/result-game/result-game.component';
+import {JoinGameComponent} from './game/join-game/join-game.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/welcome', pathMatch: 'full'},
@@ -13,10 +14,11 @@ const routes: Routes = [
     path: 'game', component: GameComponent,
     children: [
       {path: 'welcome', component: WelcomeComponent},
+      {path: 'join', component: JoinGameComponent},
       {path: 'new', component: NewGameComponent},
       {path: 'text', component: AddTextComponent},
       {path: 'result', component: ResultGameComponent}]
-  },
+  }
   // {path: '**', component: WelcomeComponent}
 ];
 

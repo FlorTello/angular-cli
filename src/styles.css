@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: aliceblue;
+  color: gray;
+  font-family: "Cooper Black";
+}
+
+text-center {
+  text-align: center;
+}
+
+mat-card {
+  min-height: 90vh;
+  justify-content: space-around;
+  background: linear-gradient(to right, purple, deeppink);
+}

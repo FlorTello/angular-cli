@@ -24,6 +24,11 @@ import {ResultGameComponent} from './game/result-game/result-game.component';
 import {AppRoutingModule} from './/app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {GameService} from './game/game.service';
+import {JoinGameComponent} from './game/join-game/join-game.component';
+import {AngularFireModule} from 'angularfire2';
+import {AngularFirestoreModule} from 'angularfire2/firestore';
+import {AngularFireAuthModule} from 'angularfire2/auth';
+import {environment} from '../environments/environment';
 
 
 @NgModule({
@@ -33,7 +38,8 @@ import {GameService} from './game/game.service';
     WelcomeComponent,
     NewGameComponent,
     AddTextComponent,
-    ResultGameComponent
+    ResultGameComponent,
+    JoinGameComponent
   ],
   exports: [
     BrowserModule,
@@ -52,6 +58,9 @@ import {GameService} from './game/game.service';
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase, 'my-app-name'), // imports firebase/app needed for everything
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features
     BrowserAnimationsModule,
     FlexLayoutModule,
     HttpClientModule,

@@ -18,4 +18,8 @@ export class WelcomeComponent implements OnInit {
     this.router.navigate(['/game/new']);
   }
 
+  onJoinGame() {
+    this.router.navigate(['/game/join']);
+  }
+
 }

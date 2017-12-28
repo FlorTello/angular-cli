@@ -1,34 +1,28 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
+import {AngularFirestore} from 'angularfire2/firestore';
 
 @Injectable()
 export class UserService {
-  data = [
-    {
-      id: '1',
-      text: []
-    },
-    {
-      id: '2',
-      text: []
-    },
-    {
-      id: '3',
-      text: []
-    }
-  ];
+  codeGame;
+  data = [];
 
-  constructor() {
+  constructor(private db: AngularFirestore) {
+    db.collection('games').valueChanges().subscribe((games: any) => this.data = games);
   }
 
-  getSencentes(game = ''): Observable<any> {
-    return Observable.of(this.data);
-  }
-
-  setSentence(id: string, text: string): Observable<any> {
-    this.data.find(game => game.id === id).text.push(text);
-    return Observable.of({message: 'success'});
-  }
+  // getSencentes(codeGame = this.codeGame): Observable<any> {
+  //   debugger;
+  //   const arrayText = this.data.find(game => game.code === codeGame).text;
+  //   return Observable.of(arrayText);
+  // }
+  //
+  // setSentence(code: string, text: string): Observable<any> {
+  //   debugger;
+  //   this.data.find(game => game.code === code).text.push(text);
+  //   this.codeGame = code;
+  //   return Observable.of({message: 'success'});
+  // }
 
 }

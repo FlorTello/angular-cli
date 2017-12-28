@@ -1,12 +1,25 @@
 <mat-card>
-  <form [formGroup]="form" (submit)="submit()">
+  <form [formGroup]="form" (submit)="submit()" fxLayout="column" fxLayoutGap="1rem" fxFlexAlign="center"
+        fxLayoutAlign="center">
     <input type="text" value="" formControlName="name" placeholder="Name: ">
-    <input type="text" value="" formControlName="players" placeholder="Players: ">
     <input type="password" value="" formControlName="password" placeholder="Password: ">
     <input type="text" value="" formControlName="turns" placeholder="Turns: ">
-
-    <button type="submit" mat-button color="accent">
-      Continuar
-    </button>
+    <div fxLayout="row" fxLayoutAlign="flex-end">
+      <button type="submit" mat-button color="accent">
+        Add
+      </button>
+    </div>
   </form>
 </mat-card>
+
+<ng-template #dialogViewCode>
+  <div mat-dialog-content>
+    <p>Share Code</p>
+    <p>{{newCode}}</p>
+  </div>
+  <mat-dialog-actions>
+    <button mat-button color="accent" (click)="onAccepted()" tabindex="-1">
+      <strong>Aceptar</strong>
+    </button>
+  </mat-dialog-actions>
+</ng-template>
