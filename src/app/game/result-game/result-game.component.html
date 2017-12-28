@@ -2,7 +2,9 @@
   <div fxLayout="column">
     <button type="button" mat-raised-button (click)="onShowData()">Show All</button>
     <p>El poema de Hoy es: </p>
-    <p *ngFor="let user of gridText">{{user.text}}</p>
+    <ul>
+      <li *ngFor="let user of gridText">{{user.text}}</li>
+    </ul>
   </div>
 </mat-card>
 

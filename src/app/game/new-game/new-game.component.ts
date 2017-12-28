@@ -48,7 +48,10 @@ export class NewGameComponent implements OnInit {
     console.log(game);
     this.gameService.setInfogame(name, password, turns).subscribe(res => {
       this.newCode = res;
-      this.dialog.open(this.dialogRef);
+      this.dialog.open(this.dialogRef, {
+        height: '200px',
+        width: '300px'
+      });
       console.log('addGame', res);
     });
 

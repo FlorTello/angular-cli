@@ -10,16 +10,16 @@
       </button>
     </div>
   </form>
+  <ng-template #dialogViewCode>
+    <div mat-dialog-content class="text-center">
+      <p>Share Code</p>
+      <p>{{newCode}}</p>
+    </div>
+    <mat-dialog-actions fxLayout="row" fxLayoutAlign="center">
+      <button mat-button color="accent" (click)="onAccepted()" tabindex="-1">
+        <strong>Aceptar</strong>
+      </button>
+    </mat-dialog-actions>
+  </ng-template>
 </mat-card>
 
-<ng-template #dialogViewCode>
-  <div mat-dialog-content>
-    <p>Share Code</p>
-    <p>{{newCode}}</p>
-  </div>
-  <mat-dialog-actions>
-    <button mat-button color="accent" (click)="onAccepted()" tabindex="-1">
-      <strong>Aceptar</strong>
-    </button>
-  </mat-dialog-actions>
-</ng-template>

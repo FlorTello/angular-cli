@@ -64,7 +64,6 @@ export class GameService {
   }
 
   getSencentes(codeGame = this.codeGame): Observable<any> {
-    debugger;
     // this.allGamesCollection.doc('games').
     // const arrayText = this.allGames.find(game => game.code === codeGame).text;
     // return Observable.of(arrayText);
