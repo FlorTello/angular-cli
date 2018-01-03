@@ -4,10 +4,10 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port 4300",
     "build": "ng build",
     "build:prod": "ng build -prod",
-    "test": "ng test",
+    "test": "ng test --code-coverage --sourcemaps=true",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "deploy": "firebase deploy"

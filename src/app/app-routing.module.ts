@@ -18,8 +18,8 @@ const routes: Routes = [
       {path: 'new', component: NewGameComponent},
       {path: 'text', component: AddTextComponent},
       {path: 'result', component: ResultGameComponent}]
-  }
-  // {path: '**', component: WelcomeComponent}
+  },
+  {path: '**', component: WelcomeComponent}
 ];
 
 @NgModule({

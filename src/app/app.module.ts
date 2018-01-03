@@ -5,7 +5,6 @@ import {NgModule} from '@angular/core';
 import {AppComponent} from './app.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {HttpClientModule} from '@angular/common/http';
-import {UserService} from './user.service';
 import {ReactiveFormsModule} from '@angular/forms';
 import {
   MatButtonModule,
@@ -74,7 +73,7 @@ import {environment} from '../environments/environment';
     MatSnackBarModule,
     MatTooltipModule
   ],
-  providers: [UserService, GameService],
+  providers: [GameService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

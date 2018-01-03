@@ -8,7 +8,7 @@ body {
 }
 
 mat-card {
-  color: white;
+  /*color: white;*/
   min-height: 50vh;
   justify-content: space-around;
   background: linear-gradient(to right, purple, deeppink);

@@ -1,6 +1,11 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AddTextComponent } from './add-text.component';
+import {AddTextComponent} from './add-text.component';
+import {MatCardModule} from '@angular/material';
+import {ReactiveFormsModule} from '@angular/forms';
+import {RouterTestingModule} from '@angular/router/testing';
+import {AppModule} from '../../app.module';
+import {GameService} from '../game.service';
 
 describe('AddTextComponent', () => {
   let component: AddTextComponent;
@@ -8,9 +13,13 @@ describe('AddTextComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddTextComponent ]
+      imports: [ReactiveFormsModule, RouterTestingModule, MatCardModule],
+      declarations: [AddTextComponent],
+      providers: [
+        {provide: GameService, useClass: GameService}
+      ]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

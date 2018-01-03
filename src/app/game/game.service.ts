@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {UserService} from '../user.service';
+import 'rxjs/add/observable/of';
 import {AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
 
 @Injectable()
@@ -9,8 +9,7 @@ export class GameService {
   allGamesCollection: AngularFirestoreCollection<any>;
   allGames = [];
 
-  constructor(private userService: UserService,
-              private db: AngularFirestore) {
+  constructor(private db: AngularFirestore) {
     this.allGamesCollection = db.collection('games');
     this.allGamesCollection.valueChanges().subscribe((games: any) => this.allGames = games);
     // db.collection('games').valueChanges().subscribe((games: any) => this.allGames = games);
@@ -26,23 +25,13 @@ export class GameService {
       turns: turns,
       text: []
     });
-
-    // this.allGames.push({
-    //   code: this.codeGame,
-    //   name: name,
-    //   password: password,
-    //   turns: turns
-    // });
-
-    // this.db.collection('app').add({code: this.codeGame, text: []});
-    // this.userService.data.push({code: this.codeGame, text: []});
     return Observable.of(this.codeGame);
   }
 
-  getInfoGame(codeGame: string = this.codeGame): Observable<any> {
-    const gameFound = this.allGames.find(game => game.code === codeGame);
-    return Observable.of(gameFound);
-  }
+  // getInfoGame(codeGame: string = this.codeGame): Observable<any> {
+  //   const gameFound = this.allGames.find(game => game.code === codeGame);
+  //   return Observable.of(gameFound);
+  // }
 
   getCodeGame(codeGame: string = this.codeGame): Observable<any> {
     const codeGameFound = this.allGames.find(game => game.code === codeGame);
@@ -71,19 +60,7 @@ export class GameService {
   }
 
   setSentence(code: string, text: string): Observable<any> {
-    // this.db.collection('app').add({id: this.db.createId(), text});
     this.db.collection('app').add({code: code, text});
-
-    // docUpdate.valueChanges().subscribe((res: any) => {
-    //   console.log(res);
-    //   newTexts.push(res);
-    // });
-    // newTexts.push(text);
-    // console.log(newTexts);
-    // docUpdate.update({text: newTexts});
-    // this.db.doc('app/' + code).update({code: code, text: [text, text]});
-    // const c = this.allGames.find(game => game.code === code);
-    // this.codeGame = code;
     return Observable.of({message: 'success'});
   }
 

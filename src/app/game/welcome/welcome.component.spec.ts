@@ -1,6 +1,9 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { WelcomeComponent } from './welcome.component';
+import {WelcomeComponent} from './welcome.component';
+import {RouterTestingModule} from '@angular/router/testing';
+import {AppModule} from '../../app.module';
+import {MatCardModule} from '@angular/material';
 
 describe('WelcomeComponent', () => {
   let component: WelcomeComponent;
@@ -8,9 +11,10 @@ describe('WelcomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WelcomeComponent ]
+      imports: [RouterTestingModule, MatCardModule],
+      declarations: [WelcomeComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {UserService} from '../../user.service';
 import {GameService} from '../game.service';
 
 @Component({
@@ -17,7 +16,6 @@ export class AddTextComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private router: Router,
-              private userService: UserService,
               private gameService: GameService) {
   }
 
