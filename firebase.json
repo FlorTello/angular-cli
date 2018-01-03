@@ -1,0 +1,22 @@
+{
+  "firebase": "angular-fire-2",
+  "public": "dist",
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/game/welcome",
+      "type": 302
+    }
+  ],
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ],
+  "rewrites": [
+    {
+      "source": "**",
+      "destination": "/index.html"
+    }
+  ]
+}
