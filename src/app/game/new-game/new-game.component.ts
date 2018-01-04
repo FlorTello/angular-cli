@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit, ViewChild} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {GameService} from '../game.service';
@@ -7,7 +7,8 @@ import {MatDialog} from '@angular/material';
 @Component({
   selector: 'app-new-game',
   templateUrl: './new-game.component.html',
-  styleUrls: ['./new-game.component.scss']
+  styleUrls: ['./new-game.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NewGameComponent implements OnInit {
   form;
@@ -24,9 +25,8 @@ export class NewGameComponent implements OnInit {
   ngOnInit() {
     this.form = this.fb.group({
       name: ['', [Validators.required]],
-      players: ['', Validators.pattern(/^[0-9]$/)],
       password: ['', Validators.required],
-      turns: ['', Validators.pattern(/^[0-9]$/)]
+      turns: ['1']
     });
   }
 
@@ -45,14 +45,12 @@ export class NewGameComponent implements OnInit {
       password: password,
       turns: turns
     };
-    console.log(game);
     this.gameService.setInfogame(name, password, turns).subscribe(res => {
       this.newCode = res;
       this.dialog.open(this.dialogRef, {
         height: '200px',
         width: '300px'
       });
-      console.log('addGame', res);
     });
 
   }

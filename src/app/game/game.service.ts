@@ -13,7 +13,6 @@ export class GameService {
     this.allGamesCollection = db.collection('games');
     this.allGamesCollection.valueChanges().subscribe((games: any) => this.allGames = games);
     // db.collection('games').valueChanges().subscribe((games: any) => this.allGames = games);
-    console.log(this.allGames);
   }
 
   setInfogame(name, password, turns): Observable<any> {

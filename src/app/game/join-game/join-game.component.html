@@ -2,7 +2,7 @@
   <form [formGroup]="form" autocomplete="off">
     <input fxFlex="100" type="text" matInput formControlName="codeGame" placeholder="Ingrese Code of game">
   </form>
-  <div fxLayout="row" fxLayoutAlign="space-between" >
+  <div fxLayout="row" fxLayoutAlign="space-between" class="margin-button">
     <button type="button" mat-button (click)="onBack()">Undo</button>
     <button type="submit" mat-button (click)="onJoin()">Done</button>
   </div>

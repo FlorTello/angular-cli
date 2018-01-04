@@ -13,3 +13,44 @@ mat-card {
   justify-content: space-around;
   background: linear-gradient(to right, purple, deeppink);
 }
+
+button {
+  color: #1abc9c !important;
+}
+
+input {
+  color: #fff !important;
+  transform: translateY(-5px);
+  margin: 40px 25px;
+  display: block;
+  border: none;
+  padding: .8rem .3rem;
+  border-bottom: solid 2px #1abc9c;
+  transition: all 0.3s cubic-bezier(.64, .09, .08, 1);
+  background: transparent;
+  background-position: -200px 0;
+  background-repeat: no-repeat;
+
+}
+
+input:focus, input:valid {
+  box-shadow: none;
+  outline: none;
+  background-position: 0 0;
+}
+
+input::placeholder {
+  color: #1abc9c;
+  font-size: .8rem;
+  transform: translateY(-15px);
+  visibility: visible !important;
+}
+
+.margin-button {
+  margin-right: 1.5rem;
+  margin-left: 1.5rem;
+}
+
+.text-white {
+  color: white;
+}

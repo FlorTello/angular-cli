@@ -1,13 +1,14 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {GameService} from '../game.service';
 
 @Component({
   selector: 'app-result-game',
   templateUrl: './result-game.component.html',
-  styleUrls: ['./result-game.component.scss']
+  styleUrls: ['./result-game.component.scss'],
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ResultGameComponent implements OnInit {
-  gridText = [];
+  @Input() gridText = [];
 
   constructor(private gameService: GameService) {
   }

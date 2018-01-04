@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {GameService} from '../game.service';
@@ -6,7 +6,8 @@ import {GameService} from '../game.service';
 @Component({
   selector: 'app-add-text',
   templateUrl: './add-text.component.html',
-  styleUrls: ['./add-text.component.scss']
+  styleUrls: ['./add-text.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AddTextComponent implements OnInit {
   form;
@@ -26,7 +27,6 @@ export class AddTextComponent implements OnInit {
     this.allTurns = this.gameService.getTurnsGame();
     this.nameGame = this.gameService.getNameGame();
     this.codeGame = this.gameService.codeGame;
-    console.log('turns', this.allTurns);
   }
 
   onAdd() {
@@ -42,10 +42,6 @@ export class AddTextComponent implements OnInit {
         });
       }
     }
-  }
-
-  onBack() {
-    this.form.get('sentence').reset('');
   }
 
 }

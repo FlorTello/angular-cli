@@ -1,13 +1,13 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {FormBuilder, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {GameService} from '../game.service';
-import {MatDialog} from '@angular/material';
 
 @Component({
   selector: 'app-join-game',
   templateUrl: './join-game.component.html',
-  styleUrls: ['./join-game.component.scss']
+  styleUrls: ['./join-game.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class JoinGameComponent implements OnInit {
   form;
@@ -30,11 +30,9 @@ export class JoinGameComponent implements OnInit {
   onJoin() {
     const textCode = this.form.get('codeGame').value;
     this.gameService.getCodeGame(textCode).subscribe(res => {
-      console.log('game encontrado');
       this.router.navigate(['/game/text']);
     }, error => console.log('game not found'));
   }
-
 
 
 }

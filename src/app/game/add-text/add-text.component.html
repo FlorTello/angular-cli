@@ -1,10 +1,10 @@
-<mat-card fxLayout="column" fxFlexAlign="center" fxLayoutAlign="center" fxLayoutGap="1rem">
-  <p>Name of Game {{ nameGame }}</p>
-  <form [formGroup]="form" autocomplete="off">
-    <input fxFlex="100" matInput formControlName="sentence" placeholder="Ingrese texto">
+<mat-card fxLayout="column" fxFlexAlign="center" fxLayoutAlign="center" fxLayoutGap="1rem" fxLayoutWrap>
+  <h3 class="margin-button text-white">Name of Game {{ nameGame }}</h3>
+  <form fxLayout="column" [formGroup]="form" autocomplete="off" (submit)="onAdd()">
+    <input matInput formControlName="sentence" placeholder="Ingrese texto">
+    <div fxLayout="row" fxLayoutAlign="flex-end" class="margin-button">
+      <!--<button type="button" mat-button (click)="onBack()">Undo</button>-->
+      <button type="submit" mat-button>Done</button>
+    </div>
   </form>
-  <div fxLayout="row" fxLayoutAlign="space-between">
-    <button type="button" mat-button (click)="onBack()">Undo</button>
-    <button type="submit" mat-button (click)="onAdd()">Done</button>
-  </div>
 </mat-card>
