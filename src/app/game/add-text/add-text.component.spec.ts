@@ -3,9 +3,19 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {AddTextComponent} from './add-text.component';
 import {MatCardModule} from '@angular/material';
 import {ReactiveFormsModule} from '@angular/forms';
-import {RouterTestingModule} from '@angular/router/testing';
-import {AppModule} from '../../app.module';
 import {GameService} from '../game.service';
+import {Router} from '@angular/router';
+import {Observable} from 'rxjs/Observable';
+
+const gameServiceStub = {
+  codeGame: '',
+  getTurnsGame: () => (''),
+  getNameGame: () => (''),
+  setSentence: (code: string, text: string) => Observable.of({})
+};
+const routerStub = {
+  navigate: jasmine.createSpy('navigate')
+};
 
 describe('AddTextComponent', () => {
   let component: AddTextComponent;
@@ -13,10 +23,11 @@ describe('AddTextComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, RouterTestingModule, MatCardModule],
+      imports: [ReactiveFormsModule, MatCardModule],
       declarations: [AddTextComponent],
       providers: [
-        {provide: GameService, useClass: GameService}
+        {provide: GameService, useValue: gameServiceStub},
+        {provide: Router, useValue: routerStub}
       ]
     })
       .compileComponents();
